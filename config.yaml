@@ -1,0 +1,70 @@
+files:
+
+  challenge_data:
+    path: "datasets/de_challenge_data.xlsx"
+    format: "xlsx"
+    sheet: "FoodSales"
+    skiprows:
+      - 124
+      - 125
+      - 126
+    schema:
+      - column_name: "ID"
+        data_type: "object"
+      - column_name: "Date"
+        data_type: "datetime64[ns]"
+      - column_name: "Region"
+        data_type: "object"
+      - column_name: "City"
+        data_type: "object"
+      - column_name: "Category"
+        data_type: "object"
+      - column_name: "Product"
+        data_type: "object"
+      - column_name: "Qty"
+        data_type: "int64"
+      - column_name: "UnitPrice"
+        data_type: "float64"
+      - column_name: "TotalPrice"
+        data_type: "float64"
+
+  create_foodsales_table_script:
+    path: "helpers/create_table_foodsales.sql"
+    format: "sql"
+
+  insert_into_foodsales_script:
+    path: helpers/insert_into_foodsales.sql
+    format: "sql"
+
+Postgres:
+
+  foodsales_table:
+    name: "FoodSales"
+    schema:
+      - column_name: "ID"
+        data_type: "VARCHAR(50)"
+        nullable: false
+      - column_name: "Date"
+        data_type: "DATE"
+        nullable: true
+      - column_name: "Region"
+        data_type: "VARCHAR(50)"
+        nullable: true
+      - column_name: "City"
+        data_type: "VARCHAR(50)"
+        nullable: true
+      - column_name: "Category"
+        data_type: "VARCHAR(50)"
+        nullable: true
+      - column_name: "Product"
+        data_type: "VARCHAR(50)"
+        nullable: true
+      - column_name: "Qty"
+        data_type: "INTEGER"
+        nullable: true
+      - column_name: "UnitPrice"
+        data_type: "REAL"
+        nullable: true
+      - column_name: "TotalPrice"
+        data_type: "REAL"
+        nullable: true
